@@ -39,11 +39,11 @@ section{
   margin-bottom: 2rem;
 }
 
-/*this is just me being finicky but I didnt like how the title shifted up whenever the loading spinner shows up so I changed up a few things on h1's style*/
+/*this is just me being finicky but I didnt like how the title shifted up whenever the loading spinner shows up so I changed up a few things on h1's style (so sorry and pls let me know if the margin acted up because i had to edit it multiple times in github to make it look right)*/
 h1{
   font-size: 3rem;
   position:absolute;
-  margin-bottom: 50px;
+  margin-bottom: 65px;
 }
 
 h2{
