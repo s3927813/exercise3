@@ -1,0 +1,14 @@
+nav ol li a {
+  color: var(--col-01);
+  text-decoration:none;
+  cursor:context-menu;
+/*changed the cursor into context menu because I think this made it more clear that the lists are clickable buttons*/
+}
+
+#mode-button{
+  background-color: transparent;
+  border: 0;
+  color: var(--col-01);
+  text-decoration: none;
+  cursor:default;
+}

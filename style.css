@@ -1,0 +1,245 @@
+/*
+  This one CSS file is imported into both index.html AND hosono.html so you need to be careful that it 
+  works for both.
+*/
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+:root{
+  /* first two colours come from Kuroi's Manga Pallete Palette */
+  /* https://lospec.com/palette-list/manga-pallete */
+  --col-01:#171219;
+  --col-02:#f2fbeb;
+  --col-03:#5252ff;
+  --col-04:#b6e878;
+  font-size: 16px;
+  /* scroll behaviour makes the <a> links to ids scroll to position over time rather than immediately */
+  scroll-behavior: smooth;
+}
+
+body{
+  padding: 1rem;
+  background-color: var(--col-02);
+  color: var(--col-01);
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav li{
+  font-size: 1rem;
+}
+
+section{
+  margin-bottom: 2rem;
+}
+
+/*this is just me being finicky but I didnt like how the title shifted up whenever the loading spinner shows up so I changed up a few things on h1's style*/
+h1{
+  font-size: 3rem;
+  position:absolute;
+  margin-bottom: 14%;
+}
+
+h2{
+  font-size: 2rem;
+}
+
+h3{
+  font-size: 3rem;
+}
+
+p{
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+figcaption{
+  width: fit-content;
+}
+
+dl ul{
+  margin-bottom: 0;
+}
+
+li{
+  font-size: 1rem;
+}
+
+dd{
+  padding-left: 60px;
+}
+
+li ul{
+  padding-left: 40px;
+}
+
+.img-wrapper{
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.img-figure{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.article-img{
+  width: 80%;
+}
+
+.res-columns{
+  column-width: 25rem;
+}
+
+#mode-button{
+  background-color: #4CAF50;
+  border-radius: 50%;
+  padding: 10px 20px;
+  text-align: center;
+  transition-property: all;
+  transition-duration: 0.5s;
+  float: right;
+  /* note the use of position: sticky to keep the button on the page even with scrolling */
+  position: sticky;
+  top: 1rem;
+}
+/*I added a background color to the button to make it stand out more,
+when I first opened the web, I did not notice that  there's a dark mode light 
+mode button, so to make it more noticeable, I gave it a background color and
+gave it a border radius because I think it made the button coherent with the whole page style
+For the background color, I initially used the green in the color palette, but
+found that it made the white text hard to read on the dark mode, so I changed the green into one
+that looks more neutral on both dark and light mode, I also added a transition duration to make
+the hover and action animation below smoother*/
+
+#mode-button:hover{
+  background-color: var(--col-03);
+  color: white;
+}
+
+/*I added a hover animation with the blue from the color palette because the color works well with both black and white
+so the text can still show up, I also think it looks nice with the entirety of the page*/
+
+#mode-button:active{
+  background-color: black;
+  color: black;
+}
+/*I also added an active animation with black because i feel like it made the button look like a switch
+ turning on and off if you click it (if you hold slightly you can see the animation better) I liked how 
+ subtle it is and I  feel like its very  fitting for a dark mode light mode button because it reminds me
+ of lights flickering or lamps turning on and off*/
+
+/* code for loading page */
+
+#load-body{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* changing button to look like a link */
+#load-link{
+  line-height: 1rem;
+  background-color: transparent;
+  border: 0;
+  transition-property: font-size;
+  transition-duration: 1s;
+}
+
+/*I added a hover animation with font size property so that the transition apply to the font-size only. I  also
+liked the simplicity of the loading page so I didn't wanna do a color animation or give the button a background color.*/
+
+#load-link:hover{
+  font-size: 16px;
+}
+
+/* throbber  -- I did an infinite spinner one because i felt like the loading  bar only works because there's a set amount of time and i prefer the spinner more :)
+
+while page is fake loading, I followed an ease in out animation load spinner 
+from w3schools I tried to change up a few stuff to understand what each command does
+At first I did not understand why my animation did not work and it turns out that I 
+need to type out the webkit animation. I still didn't understand why I need to type out the
+webkit animation even when I have the animation command, but after some research--I didn't fully understand
+quite yet but I assumed that the animation is a prefixed animation (I assumed to make some fancy animations show up in several browsers) 
+and that I need to type it out to basically get browsers to support and actually show it??*/
+#load-throbber{
+  display: none;
+  margin-top: 15px;
+  width: 35px;
+  height: 35px;
+  border: 3px solid rgba(83, 76, 76, 0.3);
+  border-radius: 50%;
+  border-top-color: rgb(36, 45, 172);
+  animation: loading 1s ease-in-out infinite;
+  -webkit-animation: load 1s ease-in-out infinite;
+  
+}
+@keyframes loading {
+  -webkit-transform: rotate(360deg);
+  /*0%{
+    background-position-x: 0%;
+  }
+  100%{
+    background-position-x: 100%;
+  }*/
+}
+@-webkit-keyframes load {
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+/* Media Queries */
+
+/* medium devices 600 - 992 */
+@media only screen and (min-width: 600px) {
+  :root{
+    font-size: 20px;
+  }
+  
+  .img-wrapper{
+    width: 75%;
+    margin: 1.5rem auto;
+  }
+
+}
+
+/* medium devices 992 + */
+@media only screen and (min-width: 992px) {
+  :root{
+    font-size: 24px;
+  }
+
+  .img-wrapper{
+    max-width: fit-content;
+    float: right;
+    margin: 1.5rem;
+  }
+
+}
+
+@media (prefers-reduced-motion) {
+  :root{
+    scroll-behavior: auto;
+  }
+}
+
+
+/* these are applied for all the  links so i  think its cool that the biography discography etc buttons match the links in the page*/ 
+/*hover over link*/
+a:hover {
+  color: #4CAF50;
+}
+
+/*while clicking link*/
+a:active {
+  color: var(--col-03);
+}
