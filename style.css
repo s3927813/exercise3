@@ -43,7 +43,7 @@ section{
 h1{
   font-size: 3rem;
   position:absolute;
-  margin-bottom: 14%;
+  margin-bottom: 80px;
 }
 
 h2{
@@ -172,7 +172,7 @@ quite yet but I assumed that the animation is a prefixed animation (I assumed to
 and that I need to type it out to basically get browsers to support and actually show it??*/
 #load-throbber{
   display: none;
-  margin-top: 15px;
+  margin-top: 10px;
   width: 35px;
   height: 35px;
   border: 3px solid rgba(83, 76, 76, 0.3);
